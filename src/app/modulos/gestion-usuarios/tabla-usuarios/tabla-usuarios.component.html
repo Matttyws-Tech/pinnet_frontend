@@ -1,0 +1,91 @@
+<h2 class="h2">Usuarios registrados</h2>
+<br><br>
+
+<div class="tabla-pines">
+    <div class="table-responsive">
+        <table class="table text-center">
+            <thead>
+                <tr style="text-transform: capitalize;">
+                    <th>documento</th>
+                    <th>nombre</th>
+                    <th>apellido</th>
+                    <th>celular</th>
+                    <th>email</th>
+                    <th>rol</th>                    
+                    <th>Áccion</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+               <tr *ngFor="let dato of datos">
+                    <td>{{dato.documento}}</td>      
+                    <td>{{dato.nombre}}</td>                    
+                    <td>{{dato.apellido}}</td>                    
+                    <td>{{dato.celular}}</td>                    
+                    <td>{{dato.email}}</td>                    
+                    <td>{{dato.rol}}</td>                                    
+                    <td>
+                        <i (click)="cargarDatos(dato)" title="Editar" class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#editarForm"></i>
+                        
+                        <i (click)="eliminar(dato.documento)" title="Eliminar" class="fas fa-trash"></i>
+                    </td>
+               </tr>
+            </tbody>
+        </table>        
+    </div>
+    <div class="modalEditarUsuario">                  
+        <div class="modal fade" id="editarForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Usuario</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="form">
+                            <div class="mb-3">
+                                <label for="inputId" class="form-label">Documento</label>
+                                <input [(ngModel)]="editForm.documento" type="text" name="documento" id="inputID" class="form-control" required readonly disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputNombre" class="form-label">Nombre*</label>
+                                <input [(ngModel)]="editForm.nombre" type="text" name="nombre" id="inputNombre" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputApellido" class="form-label">Apellido*</label>
+                                <input [(ngModel)]="editForm.apellido" type="text" name="apellido" id="inputApellido" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputCelular" class="form-label">Celular*</label>
+                                <input [(ngModel)]="editForm.celular" type="tel" name="celular" id="inputCelular" class="form-control" required maxlength="10">
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputEmail" class="form-label">Email*</label>
+                                <input [(ngModel)]="editForm.email" type="email" name="email" id="inputEmail" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputClave" class="form-label">Clave*</label>
+                                <input [(ngModel)]="editForm.clave" type="text" name="clave" id="inputClave" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputRol" class="form-label">Rol</label>
+                                <select [(ngModel)]="editForm.rol" name="rol" id="inputRol" class="form-control form-select">                                    
+                                    <option *ngFor="let item of datosRol" value="{{item.id_rol}}">{{item.nombre}}</option>
+                                </select>
+                            </div>
+                            <div class="text-center mb-3">
+                                <span [style]="myForm.invalid ? 'color:red':'color:black'" ><i>{{ myForm.invalid ? 'Debe ingresar todos los campos *' : 'Campos completados' }}</i></span>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-success"  [disabled]="myForm.invalid">Editar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+          
+            </div>
+        </div>
+    </div>
+</div>

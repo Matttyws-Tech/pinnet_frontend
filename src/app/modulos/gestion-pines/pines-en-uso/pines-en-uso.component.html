@@ -1,0 +1,30 @@
+<div class="contenedor-pines-en-router">
+    <h2>Pines en uso</h2>
+    <br><br>
+
+    <div class="table-responsive">
+        <table class="table text-center">
+            <thead>
+                <tr style="text-transform: capitalize;">
+                    <th>pin</th>
+                    <th>tiempo usado</th> 
+                    <th>tiempo restante</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+               <tr *ngFor="let dato of datos">
+                    <td>{{dato.user}}</td>      
+                    <td>{{dato.uptime}}</td>                                                       
+                    <td>{{dato['session-time-left']}}</td>                    
+                    <td>                                                
+                        <i (click)="eliminar(dato['.id'])" title="Bajar pin de los usuarios activos" class="fas fa-minus"></i>
+                    </td>
+               </tr>
+            </tbody>
+        </table>        
+    </div>
+
+
+</div>

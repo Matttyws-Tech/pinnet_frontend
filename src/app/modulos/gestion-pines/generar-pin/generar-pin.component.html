@@ -1,0 +1,17 @@
+
+<div>
+
+    <h2 class="h2 text-center">Generar Pin</h2>
+    <br><br>
+    <div class="generar-pin">
+        <div class="div-pines">
+            <button 
+            *ngFor="let item of perfiles.slice(1)" 
+            (click)="crearPin(item.name.split('-')[0], item['idle-timeout'], item.name.split('-')[1])" 
+            class="btn btn-primary"
+            >
+            {{item.name.split('-')[0]}} ${{item.name.split('-')[1]}}
+            </button>    
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+
+<div class="contenedor-principal">
+    <aside class="slidebar" [ngClass]="{ 'menu-open': isMenuOpen, 'menu-closed': !isMenuOpen }">
+
+        <div class="div-logo">
+            <a class="nav-link" (click)="toggleMenu()" [routerLink]="['/']">
+                <i class="fas fa-home"></i>
+                <span>PinNet</span>
+            </a>                
+        </div>
+        <hr>
+        
+        <div class="div-venta">
+            <h5>Pines</h5>
+            <a class="nav-link" (click)="toggleMenu()" [routerLink]="['/generar-pin']" title="Crear un nuevo pin">
+                <i class="fas fa-marker"></i>
+                <span>Generar</span>
+            </a>
+            <a class="nav-link" (click)="toggleMenu()" [routerLink]="['/registro-pines']" title="Mostrar todos los pines generados">
+                <i class="fas fa-table"></i>
+                <span>Registro en BD</span>
+            </a>                
+            <a [routerLink]="['/pines-en-uso']" (click)="toggleMenu()"  class="nav-link" title="Mostrar los pines en uso">
+                <i class="fas fa-wifi"></i>
+                <span>En uso</span>
+            </a>            
+            <a [routerLink]="['/pines-router']" (click)="toggleMenu()" class="nav-link" title="Pines en el router">
+                <i class="fas fa-trash"></i>
+                <span>En Router</span>
+            </a>
+            <hr> 
+        </div>
+        
+        <div class="div-usuarios" *ngIf="rol!='vendedor'">
+            <h5>Usuarios</h5>            
+            <a [routerLink]="['/registrar-usuario']" (click)="toggleMenu()" class="nav-link" title="Registrar un nuevo usuario">
+                <i class="fas fa-user-plus"></i>
+                <span>Añadir</span>
+            </a>      
+            <a [routerLink]="['/usuarios']" (click)="toggleMenu()" class="nav-link" title="Mostrar todos los usuarios registrados">
+                <i class="far fa-address-book"></i>
+                <span>Tabla</span>
+            </a>       
+            <hr>
+        </div>
+
+        <div class="div-button">
+            <button (click)="toggleMenu()"></button>
+        </div>
+
+    </aside>
+    <main class="main">
+        <nav class="header-main">
+
+            <button (click)="toggleMenu()" class="btn-control-slidebar">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <nav class="perfil">
+                <a (click)="salir()" title="Cerrar sesión">
+                    <span style="text-transform: capitalize;">{{nombre}} {{apellido}}</span>
+                    <img class="img-perfil" src="undraw_profile.svg">
+                </a>
+                <div class="dropwon"></div>
+            </nav>
+        </nav>
+        <div class="contenedor-main">
+            <router-outlet></router-outlet>
+        </div>
+        
+        <footer>
+            <nav>
+                <span class="">Desarrollado por Owen Angulo</span>
+            </nav>
+        </footer>
+        
+    </main>
+</div>
+
+
+

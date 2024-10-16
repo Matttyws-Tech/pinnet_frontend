@@ -1,0 +1,252 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul{
+ list-style-type: none;
+ padding: 0;
+ margin: 0;
+}
+
+
+.contenedor-principal{
+    display: flex;
+    flex-direction: row;
+    min-height: 100%;
+    background-color: #f8f9fc;
+}
+
+.slidebar{
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    flex: 1;
+    background-color: #3D71D9;
+    background-image: linear-gradient(180deg, #3D71D9 10%, #224abe 100%);
+    background-size: cover;
+    color: #fff;
+}
+
+.slidebar h5{
+    margin: 0;
+    padding: 0 1rem;
+    text-align: left;
+    color: rgba(255, 255, 255, .6);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.slidebar .nav-link{
+    padding: 1rem;
+    color: rgba(255,255,255,.7);
+}
+
+.slidebar .nav-link:hover, .slidebar .nav-link:hover i{
+    color: #fff;
+}
+
+.slidebar i{
+    color: rgba(255,255,255,.3);
+    font-size: 1.2rem;
+}
+
+
+.slidebar span{
+    font-size: .90rem;
+    margin-left: 0.5rem;
+}
+
+.slidebar hr{
+    margin: 0 1rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, .9);
+}
+
+.div-logo .nav-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4.375rem;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.div-logo .nav-link, .div-logo .nav-link i{
+    color: #fff;
+}
+
+.div-logo i{
+    font-size: 2rem;
+}
+
+.div-logo span{
+    margin: 0 1rem;
+    font-size: 1.1rem;
+}
+
+.div-button{
+    text-align: center;
+    display: none;
+}
+
+.div-button button{
+    background-color: rgba(255, 255, 255, .2);
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 0;
+}
+
+.div-button button::after{
+    color: rgba(255, 255, 255, .5);
+    font-weight: 900;
+    content: '\f104';
+    font-family: 'Font Awesome 5 Free';
+    margin-right: .1rem;
+
+}
+
+.main{
+    flex: 1;
+    width: 100%;    
+    display: flex;
+    flex-direction: column;    
+}
+
+.header-main, footer{
+    background-color: #fff;
+}
+
+.header-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 4.375rem;
+    padding: .5rem 1.5rem;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15) !important;
+}
+
+.header-main .btn-control-slidebar{
+    display: none;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-right: 1rem;
+    border-radius: 50%;
+    font-weight: 400;
+    color: #4e73df;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    background-color: transparent;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;           
+}
+
+.header-main .btn-control-slidebar:hover{
+    background-color:rgb(51 70 191 / 10%);;
+}
+
+.header-main .btn-control-slidebar:active{
+    box-shadow: 0px 0px 0px 3px rgb(45 55 165 / 20%);
+}
+
+.header-main .perfil{
+    margin-left: auto;    
+}
+
+.perfil a{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.perfil a span{
+    margin-right: 10px;
+    min-width: max-content;
+}
+
+.perfil a img{
+    height: auto;
+    width: 2.5rem;
+    border-radius: 50%;
+}
+
+.contenedor-main{
+    flex: 1;
+    padding: 30px 20px;
+}
+
+footer{
+    font-size: .9rem;
+    padding: 1.5rem .5rem;
+    text-align: center ;
+}
+
+
+
+/* Cuando la pantalla tenga 100px o menos */
+@media screen and (max-width: 1000px) {
+
+    
+        
+    .slidebar{    
+        max-width: none;    
+        width: 200px;
+        height: 100%;                
+        position: fixed;
+        top: 0;        
+        transition: left 0.1s ease;      
+        z-index: 2;  
+    }
+
+
+        /* Clase que muestra el aside */
+    .menu-open {
+        left: 0; /* Mostrar el aside */
+    }
+    
+    /* Clase que oculta el aside */
+    .menu-closed {
+        left: -200px; /* Mantener el aside oculto */
+    }
+
+    .header-main .btn-control-slidebar, .div-button{
+        display: inline-block;
+    }    
+
+    .header-main{
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        margin-bottom: 4px;
+        z-index: 1;
+    }
+
+    .contenedor-main{
+        margin-top: 70px;
+    }
+    
+}
+
+

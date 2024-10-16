@@ -1,0 +1,32 @@
+#divPadre{
+    font-family: 'Nunito Sans', sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+.divForm{
+    z-index: 0;
+    max-width: 600px;
+    width: 100%;
+    margin: 50px 0px;
+    background-color: #35acc4;
+}
+
+.form-floating{
+    margin-bottom: 20px;
+}
+
+.form-control{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: gray;
+    background: transparent;
+    font-size: 12pt;
+}
+.btn-crear{
+    font-size: 14pt;
+}

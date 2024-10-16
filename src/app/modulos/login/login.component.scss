@@ -1,0 +1,61 @@
+#divPadre{
+    font-family: 'Nunito Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background-color: #3D71D9;
+    padding: 20px;
+} 
+
+a{
+    text-decoration: none;
+    color: #3d9dd9;
+}
+
+main{
+    max-width: 450px;
+    width: 100%;
+    padding: 30px 20px;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section article{
+    width: 100%;
+    text-align: center;
+    max-width: 350px;
+}
+
+.form-control{
+    border-radius: 25px;
+}
+
+h1{
+    color: #444;
+    letter-spacing: 1px;
+}
+
+button{ 
+    width: 100%;
+    height: 50px;
+    background-color: #3D71D9;
+    border-radius: 25px;
+    border: 0px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+button:hover{
+    background-color: #1b5bda;
+}
+
+button:active{
+    background-color: #5d87dc;
+}
+

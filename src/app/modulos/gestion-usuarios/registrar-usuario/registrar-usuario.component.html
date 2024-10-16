@@ -1,0 +1,46 @@
+
+<div id="divPadre" class="p-0">
+    <div class="divForm p-5">
+        <div class="text-center">
+            <h2 class="h2">Formulario de registro</h2>
+        </div>
+        <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+            <div class="form-floating">
+                <input [(ngModel)]="form.documento" #primerInput type="text" class="form-control" id="inputDocumento" placeholder="Documento de identidad" maxlength="11" name="inputDocumento" required>
+                <label for="inputDocumento">Documento</label>
+            </div>
+            <div class="form-floating">
+                <input [(ngModel)]="form.nombre" type="text" class="form-control" id="inputNombre" placeholder="Nombre" maxlength="50" name="inputNombre" required>
+                <label for="inputNombre">Nombre</label>
+            </div>
+            <div class="form-floating">
+                <input [(ngModel)]="form.apellido" type="text" class="form-control" id="inputApellido" placeholder="Apellido" maxlength="50" name="inputApellido">
+                <label for="inputApellido">Apellido</label>
+            </div>
+            <div class="form-floating">
+                <input [(ngModel)]="form.celular" type="tel" class="form-control" id="inputCel" placeholder="Numero telefonico" maxlength="10" name="inputCel" required>
+                <label for="inputCel">Celular</label>
+            </div>
+            <div class="form-floating">
+                <input [(ngModel)]="form.email" type="maiel" class="form-control" id="inputEmail" placeholder="Correo electronico" name="inputEmail" required>
+                <label for="inputEmail">Correo Electronico</label>
+            </div>
+            <div class="form-floating">
+                <input [(ngModel)]="form.clave" type="password" class="form-control" id="inputPassword" placeholder="Contraseña" name="inputPassword" required>
+                <label for="inputPassword">Contraseña</label>
+            </div>
+            <div class="form-floating">                    
+                <select [(ngModel)]="form.rol" (change)="convertToInt($event)" name="inputRol" id="inputRol" class="form-control" placeholder="Rol" required>                                            
+                    <option *ngFor="let item of datosRol" value="{{item.id_rol}}">- {{item.nombre}}</option>                        
+                </select>
+                <label for="inputRol">Rol</label>
+            </div>
+            <div class="text-center">
+                <span [style]="myForm.invalid ? 'color:red':'color:black'" ><i>{{ myForm.invalid ? 'Debe ingresar todos los campos *' : 'Campos completados' }}</i></span>
+            </div>
+            <div>
+                <input type="submit" [disabled]="myForm.invalid" class="mt-5 w-100 btn btn-dark btn-crear" value="Crear Cuenta">
+            </div>
+        </form>
+    </div>    
+</div>

@@ -1,0 +1,27 @@
+.generar-pin{
+    width: 100%;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-pines{
+    display: grid;
+    width: 100%;
+    max-width: 400px;            
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;    
+    row-gap: 40px
+}
+
+
+button{
+    width: 100px;
+}
+
+@media screen and (max-width:1000px){
+    .div-pines{
+        max-width: 300px;
+        column-gap: 50px;    
+    }
+}

@@ -1,0 +1,26 @@
+
+<div id="divPadre" class="text-center">
+    
+    <main class="form-signin w-100 m-auto">
+      <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+        <div class="text-center">
+            <h1 class="h1 fw-normal mt-3">!Bienvenido a PinNet!</h1>
+        </div>
+        
+        <div class="form-floating mt-5 mb-3">
+          <input [(ngModel)]="email" name="email" type="text" class="form-control" id="inputUser" placeholder="Usuario" required>
+          <label for="inputUser">Correo electronico</label>          
+        </div>
+        <div class="form-floating">
+          <input [(ngModel)]="clave" name="clave" type="password" class="form-control" id="inputPass" placeholder="Contraseña" required>
+          <label for="inputPass">Contraseña</label>
+        </div>
+
+        <div [style]="validar ? 'display:none' : 'display:block'" class="text-center mt-3">
+            <span style="color: red;">Usuario y/o clave son incorrectas!</span>
+        </div>
+    
+        <button type="submit" [title]="myForm.invalid ? 'Debe ingresar todo los campos' : 'Ingresar al Dahboard de PinNet'"  [disabled]="myForm.invalid" class="mt-5 w-100 btn btn-lg btn-primary btn-login" >Iniciar Sesión</button>        
+      </form>
+    </main>    
+</div>
